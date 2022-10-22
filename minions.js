@@ -58,9 +58,38 @@ const index = capitalizedMinions.findIndex((minion)=>{
 })
 console.log(index)
 
+// reassign the initial culprit
 capitalizedMinions[index] = uncapitalizedMinion.replace(uncapitalizedMinion.charAt(0),uncapitalizedMinion.charAt(0).toUpperCase())
+//                          ^      This expression was a little annoying to put together but I was glad to get it working        ^
 
 console.log(capitalizedMinions.every((minion)=>{
   return isCapitalized(minion)
 }))
 
+
+// Bonus: reduce, sum of lengths
+const nameLengths = minions.map((minion)=>{
+  return minion.length
+})
+
+const sumLengths = nameLengths.reduce((acc, len)=>{
+  return acc + len;
+},0)
+
+console.log(`The sum of all the lengths is ${sumLengths}`)
+
+
+// Bonus: some
+// check whether some minions name lengths are 6 or higher
+const sixAndUp = nameLengths.some((name)=>{
+  return name >= 6
+})
+console.log(`Some minions name lengths are 6 or above: ${sixAndUp}`)
+
+// check whether some minions name lengths are 7 or higher
+const sevenAndUp = nameLengths.some((name)=>{
+  return name >= 7
+})
+console.log(`Some minions name lengths are 7 or above: ${sevenAndUp}`)
+
+// 
