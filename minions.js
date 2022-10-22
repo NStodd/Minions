@@ -92,4 +92,32 @@ const sevenAndUp = nameLengths.some((name)=>{
 })
 console.log(`Some minions name lengths are 7 or above: ${sevenAndUp}`)
 
-// 
+// check for upper/lower case names
+const hasUpperCase = capitalizedMinions.some((minion)=>{
+  return minion.startsWith(minion.charAt(0).toUpperCase())
+})
+console.log(`capitalizedMinions has at least one upper case name: ${hasUpperCase}`)
+
+let hasLowerCase = capitalizedMinions.some((minion)=>{
+  return minion.startsWith(minion.charAt(0).toLowerCase())
+})
+console.log(`capitalizedMinions has at least one lower case name: ${hasLowerCase}`)
+
+capitalizedMinions[index] = uncapitalizedMinion
+
+hasLowerCase = capitalizedMinions.some((minion)=>{
+  return minion.startsWith(minion.charAt(0).toLowerCase())
+})
+console.log(`Now capitalizedMinions has at least one lower case name: ${hasLowerCase}`)
+
+
+// Bonus: sort
+function compareMinions (min_a, min_b) {
+  return min_a - min_b
+}
+
+capitalizedMinions.sort((min_a, min_b) => {
+  return compareMinions(min_a.length, min_b.length)
+})
+
+console.log(capitalizedMinions)
