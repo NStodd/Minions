@@ -36,9 +36,31 @@ const actuallyCapitalizedMinions = capitalizedMinions.filter((minion)=>{
   }
 })
 
-
-
+// use every to check whether all minions have been capitalized.
 console.log(actuallyCapitalizedMinions.every((minion)=>{
+  return isCapitalized(minion)
+}))
+
+// Bonus: Every
+function isCapitalized (minion) {
   return minion.charCodeAt(0) < 91;
+}
+
+// Bonus: Find
+const uncapitalizedMinion = capitalizedMinions.find((minion)=>{
+  return minion.charCodeAt(0) > 91
+})
+console.log(uncapitalizedMinion)
+
+// Bonus: findIndex
+const index = capitalizedMinions.findIndex((minion)=>{
+  return minion === uncapitalizedMinion
+})
+console.log(index)
+
+capitalizedMinions[index] = uncapitalizedMinion.replace(uncapitalizedMinion.charAt(0),uncapitalizedMinion.charAt(0).toUpperCase())
+
+console.log(capitalizedMinions.every((minion)=>{
+  return isCapitalized(minion)
 }))
 
